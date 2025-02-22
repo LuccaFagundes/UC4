@@ -1,16 +1,15 @@
 export class Cat{
     // Atributos
-    name:string;
-    weight:number
-
-    // Construtor
-    constructor(nameCat:string,weightCat:number) {
-        this.name = nameCat;
-        this.weight = weightCat
-    }
-    
+    private name:string;
+    private weight:number
 
     // Métodos
+    setName(nomeCat:string):void{
+        this.name = nomeCat;
+    }
+
+    getName():string{return this.name}
+    
     meow():void{
         console.log("Meow Meow")
     }
@@ -20,8 +19,11 @@ export class Cat{
     }
 }
 
-const Sempai = new Cat("Sempai",3)
-const Dimenor = new Cat("Dimenor",4)
+const Sempai = new Cat()
+Sempai.setName('Sempai')
 
 Sempai.meow();
 Sempai.eat(150)
+
+
+
