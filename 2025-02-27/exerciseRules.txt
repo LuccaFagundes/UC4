@@ -1,0 +1,8 @@
+1 - Crie uma classe BlocoDeMadeira com atributos como tipo  (carvalho, pinheiro, etc.) e durabilidade
+2 - Crie uma classe Personagem com atributos como vida, forca e inventario.
+3 - Crie uma classe EspadaDeDiamante com atributos como dano e durabilidade.
+4 - Crie uma classe Monstro com atributos como vida, poderDeExplosao e distanciaDeExplosao.
+5 - Crie uma classe Mundo com um atributo que seja um array de objetos do tipo BlocoDeMadeira
+
+
+
