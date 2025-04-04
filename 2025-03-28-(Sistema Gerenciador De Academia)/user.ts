@@ -1,14 +1,14 @@
 
-export class User{
+export class User {
     protected name:string
     protected email:string
 
-    public constructor(nameReceived:string, emailReceived:string){
-       this.name = nameReceived
-       this.email = emailReceived
+    constructor(nameReceived:string, emailReceived:string){
+        nameReceived = this.name
+        emailReceived = this.email
     }
 
-    public showInformation():void{
-        console.log(this.name, this.email)
+    showInformation():void{
+        console.log(`User ${this.name} has been registered, under the email ${this.email}`)
     }
 }

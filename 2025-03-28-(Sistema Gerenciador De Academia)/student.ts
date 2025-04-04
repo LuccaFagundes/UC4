@@ -1,26 +1,26 @@
-import { User } from "./user"
+import { User } from "./user";
 
 export class Student extends User{
     private age:number
     private weight:number
     private height:number
 
-    constructor(nameReceived:string, emailReceived:string, ageUser:number, weightUser:number, heightUser:number){
-        super(nameReceived,emailReceived)
-        this.age = ageUser
-        this.weight = weightUser
-        this.height = heightUser
+    constructor(nameReceived:string, emailReceived:string, ageReceived:number, weightReceived:number, heightReceived:number){
+        super(nameReceived, emailReceived)
+        ageReceived = this.age
+        weightReceived = this.weight
+        heightReceived = this.height
     }
 
-    calculateIMC():number{
-        let IMC = this.weight/(this.height^2)
-        return IMC
+    setName(nameReceived:string){
+        this.name = nameReceived
     }
 
-    public showInformation(): void {
-        
+    getName():string{
+        return this.name
+    }
+
+    calculateBMI():void{
+        let BMI = this.weight / (this.height^2)
     }
 }
-
-const Lucca = new Student('Lucca','luccapfagundes@gmail.com',21,59,1.67)
-

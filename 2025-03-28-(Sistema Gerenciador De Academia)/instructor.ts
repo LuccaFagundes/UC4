@@ -5,10 +5,8 @@ export class Instructor extends User{
     private cref:string
 
     constructor(nameReceived:string, emailReceived:string, specialtyReceived:string, crefReceived:string){
-        super(nameReceived, emailReceived)
-        this.specialty = specialtyReceived
-        this.cref = crefReceived
+        super(nameReceived,emailReceived)
+        specialtyReceived = this.specialty
+        crefReceived = this.cref
     }
-    
-    
 }
