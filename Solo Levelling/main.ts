@@ -23,5 +23,4 @@ const habilidade7 = new MagiaFortalecimento ('Ace Shizuko','Armadura mágica que
 const habilidade8 = new MagiaFortalecimento ('Ace Hayate','Armadura mágica que aumenta a velocidade do usuário', 4, 15, 'velocidade')
 
 const monstroTeste = new Monstro('Hunter', 1, 0, /* zero de vida para funcionar a invocação */ 0, 10, 10)
-const arise = new habilidadeProtagonista('Arise', 'Invoca a sombra', 10)
 monstroTeste.serInvocado()

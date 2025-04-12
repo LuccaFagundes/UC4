@@ -44,19 +44,26 @@ export class Monstro {
     }
 
     serInvocado(): void {
+        let index = 0
+        let chanceDeInvocar
+
         if (this.vida > 1) {
             console.log('Esta habilidade pode apenas ser usadas em corpos')
         } else {
-            let chanceDeInvocar = 0;
-            let index = 0;
+            chanceDeInvocar = 0;
             while (index < 3 && chanceDeInvocar === 0) {
                 chanceDeInvocar = Math.floor(Math.random() * 2)
+                console.log(chanceDeInvocar)
                 index++
-            } if (chanceDeInvocar === 1) {
-                this.nome = 'Shadow ' + this.nome;
-                this.vida = this.vida * 1.5;
-                this.forca = this.forca * 1.5;
-                console.log(`O monstro ${this.nome} foi invocado com sucesso`)
+
+                if (chanceDeInvocar === 0) {
+                    console.log(`Tentativa ${index} de invocação falhou`)
+                } else {
+                    this.nome = 'Shadow ' + this.nome;
+                    this.vida = this.vida * 1.5;
+                    this.forca = this.forca * 1.5;
+                    console.log(`O monstro ${this.nome} foi invocado com sucesso`)
+                } 
             } chanceDeInvocar = 0
             index = 0
         }

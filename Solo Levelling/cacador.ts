@@ -27,17 +27,21 @@ export class Cacador {
     getNome():string{
         return this.nome
     }
-
     getResistencia():number{
         return this.resistencia
     }
-
     getForca():number{
         return this.forca
     }
-
     getVelocidade():number{
         return this.velocidade
+    }
+
+    setNome(nome:string){
+        this.nome = nome
+    }
+    setForca(forca:number){
+        this.forca = forca
     }
 
     equiparHabilidade(nomeHabilidade: string){
@@ -92,5 +96,25 @@ export class Cacador {
 
     exibirCacador():void{
         console.log(` Nome: ${this.nome}.\n Nível: ${this.nivel}.\n Resistência: ${this.resistencia}.\n Força: ${this.forca}.\n Velocidade: ${this.velocidade}.\n Habilidades:\n${this.listarHabilidade()}`)
+    }
+
+    transformarSombra(target:any){
+        if (target.getVida() > 1) {
+            console.log('Esta habilidade pode apenas ser usadas em corpos')
+        } else {
+            let chanceDeInvocar = 0;
+            let index = 0;
+            while (index < 3 && chanceDeInvocar === 0) {
+                chanceDeInvocar = Math.floor(Math.random() * 2)
+                console.log('A invocação falhou')
+                index++
+            } if (chanceDeInvocar === 1) {
+                target.setNome('Shadow ' + this.nome)
+                target.setVida(this.vida * 1.5)
+                target.setForca(this.forca * 1.5)
+                console.log(`O monstro ${this.nome} foi invocado com sucesso`)
+            } chanceDeInvocar = 0
+            index = 0
+        }
     }
 }
