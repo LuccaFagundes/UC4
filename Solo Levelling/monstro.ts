@@ -63,7 +63,7 @@ export class Monstro {
                     this.vida = this.vida * 1.5;
                     this.forca = this.forca * 1.5;
                     console.log(`O monstro ${this.nome} foi invocado com sucesso`)
-                } 
+                }
             } chanceDeInvocar = 0
             index = 0
         }
