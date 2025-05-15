@@ -1,7 +1,3 @@
-// FilaPedido com os métodos padrões de fila como
-// adicionarPedido(), processarPedido(),verificarProximoPedido(),
-// estaVazia() e tamanho().
-
 import { Pedido } from "./pedido"
 
 export class FilaPedido {
