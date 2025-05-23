@@ -1,22 +1,24 @@
-import { Carta } from "./carta";
+import { CartaUno } from "./cartaUno";
 
-let pilha = []
-let baralho = []
-import { BaralhoUno } from "./baralhoUno";
+export abstract class Jogador {
+  protected mao: CartaUno[] = [];
 
-export abstract class Jogador{
-    mao: Carta[] = []
+  constructor(public nome: string) {}
 
-    comprarCarta(baralho: BaralhoUno): void{
-        this.mao.push(baralho.venderUmaCarta())
-    }
+  receberCarta(carta: CartaUno) {
+    this.mao.push(carta);
+  }
 
-    jogarCarta(carta: number): void{
-        pilha.push(this.mao[carta])
-        this.mao.splice(carta, 1)
-    }
+  abstract jogarCarta(cartaTopo: CartaUno): CartaUno | null;
 
-    maoVazia(): boolean{
-        return this.mao.length === 0
-    }
+  temCartas(): boolean {
+    return this.mao.length > 0;
+  }
+
+  exibirMao(): void {
+    console.log(`${this.nome} - Cartas na mão:`);
+    this.mao.forEach((carta, i) => {
+      console.log(`${i}: ${carta.exibir()}`);
+    });
+  }
 }

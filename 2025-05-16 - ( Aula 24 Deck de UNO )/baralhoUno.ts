@@ -1,34 +1,44 @@
-import { Carta } from "./carta"
-import { Jogador } from "./jogador";
+import { CartaUno } from "./cartaUno";
 
 export class BaralhoUno {
-    private baralho: Carta[] = []
+  private cartas: CartaUno[] = [];
 
-    baralhoInicial():void{
+  constructor() {
+    this.criarBaralho();
+    this.embaralhar();
+  }
 
+  private criarBaralho() {
+    const cores = ['azul', 'amarelo', 'verde', 'vermelho'];
+    const valores = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Comprar2', 'Inverter', 'Bloquear'];
+    const especiaisPretas = ['Comprar4'];
+
+    for (const cor of cores) {
+      for (const valor of valores) {
+        this.cartas.push(new CartaUno(cor as any, valor));
+        if (valor !== '0') this.cartas.push(new CartaUno(cor as any, valor)); // cartas duplicadas exceto 0
+      }
     }
 
-    reembaralhar():void{
-
+    for (const valor of especiaisPretas) {
+      for (let i = 0; i < 4; i++) {
+        this.cartas.push(new CartaUno("preto", valor)); // cor preta para cartas especiais
+      }
     }
+  }
 
-    ultimaCarta(): Carta | undefined {
-        return this.baralho[this.baralho.length - 1]
+  public embaralhar() {
+    for (let i = this.cartas.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [this.cartas[i], this.cartas[j]] = [this.cartas[j], this.cartas[i]];
     }
+  }
 
-    removeDoFinal(): Carta | undefined {
-        return this.baralho.pop()
-    }
+  public comprarCarta(): CartaUno | undefined {
+    return this.cartas.pop();
+  }
 
-    venderUmaCarta(): Carta{
-        let cartaComprada = this.ultimaCarta()
-        this.removeDoFinal()
-        return cartaComprada 
-    }
-
-    estaVazia(): boolean {
-        return this.baralho.length === 0;
-    }
-    
+  public estaVazio(): boolean {
+    return this.cartas.length === 0;
+  }
 }
-
